@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:projectf/routes/routerConfig.dart';
+import 'package:projectf/screens/single_play/onboarding/onboarding_view_model.dart';
+import 'package:projectf/core/base/base_view.dart';
+import 'package:projectf/core/base/base_viewmodel.dart';
+import 'package:projectf/core/constant/color_constant.dart';
+import 'package:projectf/core/common/view/bottom_button.dart';
 
 class OnboardingStep1View extends StatelessWidget {
   const OnboardingStep1View({super.key});
@@ -12,16 +17,20 @@ class OnboardingStep1View extends StatelessWidget {
       builder: (context2, viewModel, child) {
         return Scaffold(
           backgroundColor: ColorSystem.backgroundColor,
-          body: const Padding(
+          body: Padding(
             padding: EdgeInsets.only(left: 20),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Center(
-                  child: Text(
-                    "스마트 푸푸를 통해\n아기 똥 색깔을 확인하고\n다이어리를 작성할 수 있어요.",
-                    style: FontSystem.initTextStyle,
-                  ),
+                 child: Column(
+                   children: [
+                     Container(height: 300),
+                     Text("입장하실 교실을 선택하세요"),
+
+                   ],
+                 )
+
                 ),
               ],
             ),
