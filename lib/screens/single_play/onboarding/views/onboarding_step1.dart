@@ -27,19 +27,68 @@ class OnboardingStep1View extends StatelessWidget {
                    children: [
                      Container(height: 300),
                      Text("입장하실 교실을 선택하세요"),
-
+                     Container(height: 20),
+                     Row(
+                       children: [
+                         Padding(
+                             padding: EdgeInsets.all(8.0),
+                          child:
+                            SizedBox(
+                             width: 60,
+                             height: 60,
+                             child: TextField(
+                                 decoration: InputDecoration(
+                                   filled: true,
+                                   fillColor: ColorSystem.white,
+                                   border: OutlineInputBorder(
+                                     borderRadius: BorderRadius.circular(10), // 여기서 모서리 곡률 정의
+                                     borderSide: BorderSide.none, // 필요한 경우 테두리 스타일 조정
+                                   ),
+                                 ),
+                               onChanged: (value){
+                                   viewModel.onChangedGrade(value as int);
+                               },
+                               onSubmitted: (text) => viewModel.onTapNext(),
+                             )
+                         ),
+                         ),
+                         Text("학년"),
+                         Padding(
+                           padding: EdgeInsets.all(8.0),
+                           child:
+                           SizedBox(
+                               width: 60,
+                               height: 60,
+                               child: TextField(
+                                 decoration: InputDecoration(
+                                   filled: true,
+                                   fillColor: ColorSystem.white,
+                                   border: OutlineInputBorder(
+                                     borderRadius: BorderRadius.circular(10), // 여기서 모서리 곡률 정의
+                                     borderSide: BorderSide.none, // 필요한 경우 테두리 스타일 조정
+                                   ),
+                                 ),
+                                 onChanged: (value){
+                                   viewModel.onChangedGrade(value as int);
+                                 },
+                                 onSubmitted: (text) => viewModel.onTapNext(),
+                               )
+                           ),
+                         ),
+                         Text("반")
+                       ],
+                     ),
+                  ]
+                       ),
+                     ),
                    ],
                  )
-
                 ),
-              ],
-            ),
-          ),
           bottomNavigationBar: BottomButton(
-            onTap: viewModel.onTapNext,
-            text: "다음으로",
-          ),
-        );
+          onTap: viewModel.onTapNext,
+          text: "다음으로",
+        ),
+            );
       },
     );
   }
