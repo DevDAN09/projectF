@@ -11,8 +11,8 @@ class RoomApi {
   RoomApi._internal() : _dio = Dio() {
     // 여기에서 Dio의 기본 설정을 구성할 수 있습니다.
     _dio.options.baseUrl = "https://localhost:8080";
-    _dio.options.connectTimeout = 5000;
-    _dio.options.receiveTimeout = 3000;
+    _dio.options.connectTimeout = 5000 as Duration?;
+    _dio.options.receiveTimeout = 3000 as Duration?;
     // 필요한 경우 기타 설정을 추가합니다.
   }
 
@@ -20,9 +20,9 @@ class RoomApi {
   static RoomApi get instance => _instance;
 
   // Room 관련 API 메서드들
-  factory postCreateRoom(Player request) async {
+  Future<Room> createRoom(Player request) async {
     try {
-      Response response = await _dio.post('/Room/CreateRoom', data: request.toJsonCreateRoom());
+      Response response = await _dio.post('/Room/CreateRoom', data: request.toJsonPostCreateRoom());
       return Room.fromJsonCreateRoom(response.data);
     } catch (e) {
       // 에러 처리 로직
@@ -32,7 +32,7 @@ class RoomApi {
 
   void postParticipateRoom(Player request) async {
     try {
-      Response response = await _dio.post('/Room/ParticipateRoom', data: request.toJsonParticipateRoom());
+      Response response = await _dio.post('/Room/ParticipateRoom', data: request.toJsonPostParticipateRoom());
     } catch (e) {
       // 에러 처리 로직
       throw e;

@@ -22,4 +22,6 @@ class Player {
       "roomId": this._roomId,
     };
   }
+
+  toJsonParticipateRoom() {}
 }
