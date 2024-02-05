@@ -53,10 +53,17 @@ class _TaggerStep2ViewState extends State<TaggerStep2View> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  NameTag(name: "이예림",
+                                  Draggable(data: "이예림",
+                                      feedback: NameTag(name: "이예림",
                                       height: 100,
                                       width: screenWidth / 4,
                                       fontSize: 25),
+                                    child: NameTag(name: "이예림",
+                                        height: 100,
+                                        width: screenWidth / 4,
+                                        fontSize: 25)
+                                  ),
+
                                   NameTag(name: "윤영민",
                                       height: 100,
                                       width: screenWidth / 4,

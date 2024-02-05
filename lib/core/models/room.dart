@@ -1,27 +1,28 @@
 import 'package:projectf/core/models/player.dart';
 
 class Room {
-  final String _masterName;
-  final String _roomId;
-  Map<int, Player> _memberNames;
+  late final String _roomId;
+  static int _nextMemberId = 0;
+  late Map<int, Player> _memberNames;
 
-  Room({required this._masterName, required this._roomId, int playerId}){
-    _memberNames = [];
-    addMember(playerId, _masterName);
+  Room({required roomId, required player}){
+    _memberNames = [] as Map<int, Player>;
+    _roomId = roomId;
+    addMember(player);
+    _nextMemberId += 1;
   }
 
   // 외부에서 수정 불가능한 룸 명단 getter
   Map<int, String> get players => Map.unmodifiable(_memberNames);
 
-  void addMember(int memberId, String memberName) {
-    _memberNames[memberId] = memberName;
+  void addMember(Player player) {
+    _memberNames[_nextMemberId] = player.nickname as Player;
   }
 
   factory Room.fromJsonCreateRoom(Map<String, dynamic> json) {
     return Room(
-      _roomId: json['roomId'],
-      playerId: json['playerId'],
-      _masterName: json['nickName'],
+      roomId: json['roomId'],
+      player: Player(nickName: json['nickName'],roomId: json['roomId']),
     );
   }
 }
