@@ -1,3 +1,5 @@
+
+User
 import 'package:flutter/material.dart';
 import 'package:projectf/core/constant/color_constant.dart';
 import 'package:projectf/core/base/base_view.dart';
@@ -17,7 +19,6 @@ class TaggerStep2View extends StatefulWidget {
 
 
 class _TaggerStep2ViewState extends State<TaggerStep2View> {
-
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery
@@ -53,16 +54,23 @@ class _TaggerStep2ViewState extends State<TaggerStep2View> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Draggable(data: "이예림",
-                                      feedback: NameTag(name: "이예림",
+                                  viewModel.isSelected[0]?
+                                  NameTag(name: "사용완료",
                                       height: 100,
                                       width: screenWidth / 4,
-                                      fontSize: 25),
+                                      fontSize: 25)
+                                      :
+                                  Draggable(data: "이예림",
+                                    feedback: NameTag(name: "이예림",
+                                        height: 100,
+                                        width: screenWidth / 4,
+                                        fontSize: 25),
                                     child: NameTag(name: "이예림",
                                         height: 100,
                                         width: screenWidth / 4,
-                                        fontSize: 25)
+                                        fontSize: 25),
                                   ),
+
 
                                   NameTag(name: "윤영민",
                                       height: 100,
@@ -76,25 +84,24 @@ class _TaggerStep2ViewState extends State<TaggerStep2View> {
                               ),
                               Stack(
                                   children: [
-                                    Transform.translate(
-                                        offset: Offset(-90, -40),
-                                        child: TestPaper(
-                                          opinion: "너의 첫 인상은 이런 것 같아 그래서 정말 친해지고 싶어",)
-                                    ),
-                                    Transform.rotate(angle: -0.1,
-                                        child: Transform.translate(
-                                        offset: Offset(85, 100),
-                                            child: TestPaper(
-                                            opinion: "너의 첫 인상은 이런 것 같아 그래서 정말 친해지고 싶어",)
-                                          ),
-                                    ),
-                                    Transform.rotate(angle: 0.1,
-                                      child: Transform.translate(
-                                          offset: Offset(-60, 200),
-                                          child: TestPaper(
-                                            opinion: "너의 첫 인상은 이런 것 같아 그래서 정말 친해지고 싶어",)
+                                    TestPaper(
+                                        opinion: "너의 첫 인상은 이런 것 같아 그래서 정말 친해지고 싶어",
+                                        onNameAccepted: (String name) {
+                                          viewModel.setSelected(0, true);
+                                        },
                                       ),
-                                    ),
+                                    TestPaper(
+                                          opinion: "정말 착해",
+                                          onNameAccepted: (String name) {
+                                            viewModel.setSelected(1, true);
+                                          },
+                                        ),
+                                    TestPaper(
+                                          opinion: "정말 착해",
+                                          onNameAccepted: (String name) {
+                                            viewModel.setSelected(2, true);
+                                          },
+                                        ),
                                   ]
                               ),
 
