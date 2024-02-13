@@ -27,6 +27,7 @@ class OnboardingViewMultiModel extends BaseViewModel{
     //notifyListeners();
     if (step == 2) {
       viewModelContext.pushReplacementNamed(Routes.multiInitStep2);
+
     } else if (step == 3) {
       viewModelContext.pushReplacementNamed(Routes.CreateRoomStep1);
     } else if (step == 4) {
@@ -46,14 +47,17 @@ class OnboardingViewMultiModel extends BaseViewModel{
 
   void onChangedGrade(int value) {
     gradeNum = value;
+    print("onChangeGradeNum : $gradeNum");
   }
 
   void onChangeClass(int value){
     classNum = value;
+    print("onChangeClass : $classNum");
   }
 
   void onChangeName(String value){
     name = value;
+    print("onChangeName : $name");
   }
 
   void onTapNext(int value){

@@ -1,5 +1,4 @@
 
-User
 import 'package:flutter/material.dart';
 import 'package:projectf/core/constant/color_constant.dart';
 import 'package:projectf/core/base/base_view.dart';
@@ -71,47 +70,67 @@ class _TaggerStep2ViewState extends State<TaggerStep2View> {
                                         fontSize: 25),
                                   ),
 
+                                  viewModel.isSelected[1]?
+                                  NameTag(name: "사용완료",
+                                      height: 100,
+                                      width: screenWidth / 4,
+                                      fontSize: 25)
+                                      :
+                                  Draggable(data: "윤영민",
+                                    feedback: NameTag(name: "윤영민",
+                                        height: 100,
+                                        width: screenWidth / 4,
+                                        fontSize: 25),
+                                    child: NameTag(name: "윤영민",
+                                        height: 100,
+                                        width: screenWidth / 4,
+                                        fontSize: 25),
+                                  ),
 
-                                  NameTag(name: "윤영민",
+                                  viewModel.isSelected[2]?
+                                  NameTag(name: "사용완료",
                                       height: 100,
                                       width: screenWidth / 4,
-                                      fontSize: 25),
-                                  NameTag(name: "김예찬",
-                                      height: 100,
-                                      width: screenWidth / 4,
-                                      fontSize: 25),
+                                      fontSize: 25)
+                                      :
+                                  Draggable(data: "김예찬",
+                                    feedback: NameTag(name: "김예찬",
+                                        height: 100,
+                                        width: screenWidth / 4,
+                                        fontSize: 25),
+                                    child: NameTag(name: "김예찬",
+                                        height: 100,
+                                        width: screenWidth / 4,
+                                        fontSize: 25),
+                                  ),
                                 ],
                               ),
-                              Stack(
-                                  children: [
-                                    TestPaper(
+                              TestPaper(
                                         opinion: "너의 첫 인상은 이런 것 같아 그래서 정말 친해지고 싶어",
                                         onNameAccepted: (String name) {
                                           viewModel.setSelected(0, true);
                                         },
+                                        offset: Offset(-100,-40),
                                       ),
                                     TestPaper(
                                           opinion: "정말 착해",
                                           onNameAccepted: (String name) {
                                             viewModel.setSelected(1, true);
                                           },
+                                          offset: Offset(100,-200),
                                         ),
                                     TestPaper(
                                           opinion: "정말 착해",
                                           onNameAccepted: (String name) {
                                             viewModel.setSelected(2, true);
                                           },
+                                          offset: Offset(-100, -270),
                                         ),
-                                  ]
-                              ),
-
                             ]
                         )
-
                     ),
-                    Spacer(),
                     Transform.translate(
-                      offset: Offset(150, 0),
+                      offset: Offset(0, 0),
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(

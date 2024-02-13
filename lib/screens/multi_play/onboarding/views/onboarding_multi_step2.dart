@@ -7,9 +7,12 @@ import 'package:projectf/core/base/base_view.dart';
 import 'package:projectf/screens/multi_play/onboarding/onboarding_view_multi_model.dart';
 import 'package:projectf/core/common/view/bottom_button.dart';
 import 'package:projectf/core/common/view/square_button.dart';
+import 'package:projectf/core/networks/http/room/room_api.dart';
 
 class OnboardingMultiStep2View extends StatelessWidget {
   const OnboardingMultiStep2View({super.key});
+
+  RoomApi
 
   @override
   Widget build(BuildContext context) {

@@ -4,25 +4,24 @@ import 'package:projectf/core/models/room.dart';
 
 class RoomApi {
   static final RoomApi _instance = RoomApi._internal();
-
-  Dio _dio;
-
-  // Private 생성자
-  RoomApi._internal() : _dio = Dio() {
-    // 여기에서 Dio의 기본 설정을 구성할 수 있습니다.
-    _dio.options.baseUrl = "https://localhost:8080";
-    _dio.options.connectTimeout = 5000 as Duration?;
-    _dio.options.receiveTimeout = 3000 as Duration?;
-    // 필요한 경우 기타 설정을 추가합니다.
+  late Dio _dio; // Dio 인스턴스 선언
+  RoomApi._internal() {
+    _dio = Dio();
   }
 
-  // 싱글톤 인스턴스에 대한 공개적으로 접근 가능한 getter
   static RoomApi get instance => _instance;
+
+  // Dio 인스턴스에 대한 getter를 제공합니다.
+  Dio get dio => _dio;
+
+  void setBaseUrl(String url) {
+    _dio.options.baseUrl = url;
+  }
 
   // Room 관련 API 메서드들
   Future<Room> createRoom(Player request) async {
     try {
-      Response response = await _dio.post('/Room/CreateRoom', data: request.toJsonPostCreateRoom());
+      Response response = await dio.post('/Room/CreateRoom', data: request.toJsonPostCreateRoom());
       return Room.fromJsonCreateRoom(response.data);
     } catch (e) {
       // 에러 처리 로직
@@ -32,12 +31,11 @@ class RoomApi {
 
   void postParticipateRoom(Player request) async {
     try {
-      Response response = await _dio.post('/Room/ParticipateRoom', data: request.toJsonPostParticipateRoom());
+      Response response = await dio.post('/Room/ParticipateRoom', data: request.toJsonPostParticipateRoom());
+      // 성공적으로 참가 처리됨
     } catch (e) {
       // 에러 처리 로직
       throw e;
     }
   }
-
-
 }

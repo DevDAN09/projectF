@@ -10,6 +10,7 @@ class Player {
   String get roomId => _roomId;
 
   Map<String, dynamic> toJsonPostCreateRoom() {
+    print("post to $nickname");
     return {
       'nickName': this._nickName,
       'roomId': this._roomId,
