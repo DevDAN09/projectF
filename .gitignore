@@ -1,4 +1,5 @@
 # Miscellaneous
+*.env
 config.json
 *.class
 *.log

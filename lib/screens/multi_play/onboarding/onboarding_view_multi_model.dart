@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:projectf/core/base/base_viewmodel.dart';
 import 'package:projectf/core/base/base_view.dart';
-
+import 'package:projectf/core/networks/http/room/room_api.dart';
+import 'package:projectf/core/models/player.dart';
 import '../../../routes/routerConfig.dart';
 
 class OnboardingViewMultiModel extends BaseViewModel{
@@ -27,11 +28,15 @@ class OnboardingViewMultiModel extends BaseViewModel{
     //notifyListeners();
     if (step == 2) {
       viewModelContext.pushReplacementNamed(Routes.multiInitStep2);
-
+      print("step : $step");
     } else if (step == 3) {
+      print("input: $name");
       viewModelContext.pushReplacementNamed(Routes.CreateRoomStep1);
+      print("step : $step");
     } else if (step == 4) {
       viewModelContext.pushReplacementNamed(Routes.ReadyRoomMain);
+      print("input: $gradeNum - $classNum");
+      print("step : $step");
     }
   }
 
@@ -41,21 +46,21 @@ class OnboardingViewMultiModel extends BaseViewModel{
 
   TextEditingController nameTextController = TextEditingController();
 
-  int gradeNum = 0;
-  int classNum = 0;
+  String gradeNum = "";
+  String classNum = "";
   String name = "";
 
-  void onChangedGrade(int value) {
+  void onChangedGrade(String value) {
     gradeNum = value;
     print("onChangeGradeNum : $gradeNum");
   }
 
-  void onChangeClass(int value){
+  void onChangedClass(String value){
     classNum = value;
     print("onChangeClass : $classNum");
   }
 
-  void onChangeName(String value){
+  void onChangedName(String value){
     name = value;
     print("onChangeName : $name");
   }

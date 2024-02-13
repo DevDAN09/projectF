@@ -19,7 +19,7 @@ class RoomApi {
   }
 
   // Room 관련 API 메서드들
-  Future<Room> createRoom(Player request) async {
+  Future<Room> postCreateRoom(Player request) async {
     try {
       Response response = await dio.post('/Room/CreateRoom', data: request.toJsonPostCreateRoom());
       return Room.fromJsonCreateRoom(response.data);

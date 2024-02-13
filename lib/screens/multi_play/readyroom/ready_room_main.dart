@@ -33,7 +33,7 @@ class _ReadyRoomMainViewState extends State<ReadyRoomMainView> {
           body: Column(
               children: [
                 Container(height: 30),
-                ClassSign(grade: "3", classNum: "2"),
+                ClassSign(grade: viewModel.gradeNum, classNum: viewModel.classNum),
                 Padding(
                   padding: EdgeInsets.only(left: 10, right: 10),
                   child: Row(

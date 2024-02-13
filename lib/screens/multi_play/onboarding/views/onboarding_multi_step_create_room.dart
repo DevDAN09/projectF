@@ -47,7 +47,7 @@ class OnboardingCreateRoomStep1 extends StatelessWidget {
                                         ),
                                       ),
                                       onChanged: (value){
-                                        viewModel.onChangedGrade(value as int);
+                                        viewModel.onChangedGrade(value);
                                       },
                                       onSubmitted: (text) => viewModel.onTapNext,
                                     )
@@ -70,7 +70,7 @@ class OnboardingCreateRoomStep1 extends StatelessWidget {
                                         ),
                                       ),
                                       onChanged: (value){
-                                        viewModel.onChangedGrade(value as int);
+                                        viewModel.onChangedClass(value);
                                       },
                                       onSubmitted: (text) => viewModel.onTapCreateRoom,
                                     )

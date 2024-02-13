@@ -12,8 +12,6 @@ import 'package:projectf/core/networks/http/room/room_api.dart';
 class OnboardingMultiStep2View extends StatelessWidget {
   const OnboardingMultiStep2View({super.key});
 
-  RoomApi
-
   @override
   Widget build(BuildContext context) {
     return BaseView(
@@ -50,7 +48,7 @@ class OnboardingMultiStep2View extends StatelessWidget {
                                         ),
                                       ),
                                       onChanged: (value){
-                                        viewModel.onChangeName(value);
+                                        viewModel.onChangedName(value);
                                       },
                                       onSubmitted: (text) => viewModel.onTapNext,
                                     )
