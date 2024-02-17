@@ -11,6 +11,7 @@ class TestPaper extends StatefulWidget {
   final Offset offset;
   final double fontSize;
   final bool isSelected;
+  final EdgeInsets edgeInsets;
   final Function onNameAccepted;
 
   TestPaper({
@@ -23,6 +24,7 @@ class TestPaper extends StatefulWidget {
     this.isSelected = false,
     this.offset = const Offset(0,0),
     this.angle = 0.0,
+    this.edgeInsets = const EdgeInsets.all(12),
     super.key
   });
 
@@ -73,7 +75,7 @@ class _TestPaperState extends State<TestPaper> {
               return Container(
                   height: widget.height,
                   width: widget.width,
-                  margin: EdgeInsets.all(12),
+                  margin: widget.edgeInsets,
                   child: Stack(
                       alignment: Alignment.center,
                       children: [

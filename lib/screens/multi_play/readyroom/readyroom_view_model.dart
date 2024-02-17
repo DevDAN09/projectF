@@ -7,9 +7,9 @@ import 'package:projectf/screens/multi_play/onboarding/onboarding_view_multi_mod
 class ReadyRoomViewModel extends BaseViewModel{
   static ReadyRoomViewModel? _instance;
 
-  final onboardingViewModel = Provider.of<OnboardingViewMultiModel>(context);
+  final _onboardingViewModel = OnboardingViewMultiModel.instance;
 
-
+  OnboardingViewMultiModel get onboardingViewMultiModel => _onboardingViewModel;
   // Singleton Design Pattern
   static ReadyRoomViewModel get instance {
     _instance ??= ReadyRoomViewModel();

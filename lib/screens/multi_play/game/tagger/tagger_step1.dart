@@ -75,7 +75,7 @@ class _TaggerStep1ViewState extends State<TaggerStep1View> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       Spacer(),
-                      Transform.translate(
+                      Transform.translate( //분필 디자인
                           offset: Offset(150,0),
                           child: Container(
                             decoration: BoxDecoration(

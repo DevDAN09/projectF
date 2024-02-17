@@ -125,16 +125,16 @@ class _TaggerStep2ViewState extends State<TaggerStep2View> {
                                             viewModel.setSelected(2, true);
                                           },
                                           offset: Offset(-100, -270),
+                                      edgeInsets: EdgeInsets.only(left: 12, right: 12, top: 12),
                                         ),
                             ]
                         )
                     ),
-                    Transform.translate(
-                      offset: Offset(0, 0),
+                    Transform.translate( //분필디자인
+                      offset: Offset(150, 0),
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              20),
+                          borderRadius: BorderRadius.circular(20),
                           // 모서리를 둥글게 만들기 위한 값 (20은 픽셀 단위입니다)
                           border: Border.all(
                               color: ColorSystem.white,
