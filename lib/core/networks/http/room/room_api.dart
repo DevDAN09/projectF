@@ -20,8 +20,10 @@ class RoomApi {
 
   // Room 관련 API 메서드들
   Future<Room> postCreateRoom(Player request) async {
+    print("서버로 postCreateRoom");
     try {
       Response response = await dio.post('/Room/CreateRoom', data: request.toJsonPostCreateRoom());
+      print("Response Data : $response");
       return Room.fromJsonCreateRoom(response.data);
     } catch (e) {
       // 에러 처리 로직
@@ -33,6 +35,17 @@ class RoomApi {
     try {
       Response response = await dio.post('/Room/ParticipateRoom', data: request.toJsonPostParticipateRoom());
       // 성공적으로 참가 처리됨
+    } catch (e) {
+      // 에러 처리 로직
+      throw e;
+    }
+  }
+
+  Future<void> getParticipation(String roomId) async {
+    try {
+      Response response = await dio.get('/Player/GetParticipation/$roomId');
+      print(response.data);
+      // 참가자의 정보를 받아옴
     } catch (e) {
       // 에러 처리 로직
       throw e;

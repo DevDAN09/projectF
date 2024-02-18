@@ -22,21 +22,23 @@ class OnboardingViewMultiModel extends BaseViewModel{
     viewModelContext = context;
   }
 
-  void onTapCreateRoom(){
+  Future<void> onTapCreateRoom() async {
     step += 1;
     //print("NAME : $name");
     //notifyListeners();
     if (step == 2) {
       viewModelContext.pushReplacementNamed(Routes.multiInitStep2);
       print("step : $step");
-    } else if (step == 3) {
+    } else if (step == 3) { // 이름 물어보기
       print("input: $name");
       viewModelContext.pushReplacementNamed(Routes.CreateRoomStep1);
       print("step : $step");
-    } else if (step == 4) {
+    } else if (step == 4) { //방 생성 완료
       viewModelContext.pushReplacementNamed(Routes.ReadyRoomMain);
       print("input: $gradeNum - $classNum");
       print("step : $step");
+      await RoomApi.instance.postCreateRoom(Player(nickName: name,roomId: "$gradeNum$classNum"));
+      await RoomApi.instance.getParticipation("$gradeNum$classNum");
     }
   }
 

@@ -105,51 +105,67 @@ class _TaggerStep2ViewState extends State<TaggerStep2View> {
                                   ),
                                 ],
                               ),
+                              Row(
+                                children: [
+                                  TestPaper(
+                                    opinion: "너의 첫 인상은 이런 것 같아 그래서 정말 친해지고 싶어",
+                                    onNameAccepted: (String name) {
+                                      viewModel.setSelected(0, true);
+                                      viewModel.setName(0, name);
+                                    },
+                                    offset: Offset(15,-30),
+                                    edgeInsets: EdgeInsets.only(left: 12, right:12, bottom:12, top:0),
+                                  ),
+                                  TestPaper(
+                                    opinion: "정말 착해",
+                                    onNameAccepted: (String name) {
+                                      viewModel.setSelected(1, true);
+                                      viewModel.setName(1, name);
+                                    },
+                                    offset: Offset(35,30),
+                                    edgeInsets: EdgeInsets.only(left: 12, right:12, bottom:12),
+                                  ),
+                                ],
+                              ),
+
                               TestPaper(
-                                        opinion: "너의 첫 인상은 이런 것 같아 그래서 정말 친해지고 싶어",
-                                        onNameAccepted: (String name) {
-                                          viewModel.setSelected(0, true);
-                                        },
-                                        offset: Offset(-100,-40),
-                                      ),
-                                    TestPaper(
-                                          opinion: "정말 착해",
-                                          onNameAccepted: (String name) {
-                                            viewModel.setSelected(1, true);
-                                          },
-                                          offset: Offset(100,-200),
-                                        ),
-                                    TestPaper(
-                                          opinion: "정말 착해",
-                                          onNameAccepted: (String name) {
-                                            viewModel.setSelected(2, true);
-                                          },
-                                          offset: Offset(-100, -270),
-                                      edgeInsets: EdgeInsets.only(left: 12, right: 12, top: 12),
-                                        ),
+                                opinion: "정말 착해",
+                                onNameAccepted: (String name) {
+                                  viewModel.setSelected(2, true);
+                                  viewModel.setName(1, name);
+                                },
+                                offset: Offset(-95, -20),
+                                edgeInsets: EdgeInsets.only(left: 12, right: 12, top: 12),
+                              ),
+
                             ]
                         )
                     ),
-                    Transform.translate( //분필디자인
-                      offset: Offset(150, 0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          // 모서리를 둥글게 만들기 위한 값 (20은 픽셀 단위입니다)
-                          border: Border.all(
-                              color: ColorSystem.white,
-                              width: 2),
-                          // 선택적: 외곽선 추가
-                          color: ColorSystem.white, // 배경 색상 설정
+                    Spacer(),
+                    Stack(
+                      children: [
+                        Container(
+                          color: ColorSystem.lightGray,
+                          width: double.infinity,
+                          height: 50,
                         ),
-                        width: 50,
-                        height: 10,
-                      ),
-                    ),
-                    Container(
-                      color: ColorSystem.lightGray,
-                      width: double.infinity,
-                      height: 50,
+                        Transform.translate( //분필디자인
+                          offset: Offset(300, -10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              // 모서리를 둥글게 만들기 위한 값 (20은 픽셀 단위입니다)
+                              border: Border.all(
+                                  color: ColorSystem.white,
+                                  width: 2),
+                              // 선택적: 외곽선 추가
+                              color: ColorSystem.white, // 배경 색상 설정
+                            ),
+                            width: 50,
+                            height: 10,
+                          ),
+                        ),
+                      ],
                     )
                   ]
               ),

@@ -24,5 +24,10 @@ class Player {
     };
   }
 
-  toJsonParticipateRoom() {}
+  Map<String, dynamic> toJsonGetParticipation(){
+    return {
+      "roomId": this._roomId,
+    };
+  }
+
 }
