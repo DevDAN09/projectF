@@ -6,16 +6,22 @@ import 'package:projectf/core/common/view/name_tag.dart';
 import 'package:projectf/core/common/view/class_sign.dart';
 import 'package:projectf/core/common/view/switch_test.dart';
 import 'package:projectf/screens/multi_play/readyroom/readyroom_view_model.dart';
+import 'package:projectf/screens/multi_play/onboarding/onboarding_view_multi_model.dart';
 
 class ReadyRoomMainView extends StatefulWidget {
   const ReadyRoomMainView({super.key});
-
   @override
   _ReadyRoomMainViewState createState() => _ReadyRoomMainViewState();
 }
 
 class _ReadyRoomMainViewState extends State<ReadyRoomMainView> {
   bool isLight = true; // SwitchTest의 상태를 추적하는 로컬 변수
+
+  @override
+  void initState(){
+    ReadyRoomViewModel.instance.setterRoomId(OnboardingViewMultiModel.instance.roomId);
+    //ReadyRoomViewModel.instance.getParticipant();
+  }
 
   void _handleSwitchChange(bool newValue) {
     setState(() {
@@ -33,7 +39,7 @@ class _ReadyRoomMainViewState extends State<ReadyRoomMainView> {
           body: Column(
               children: [
                 Container(height: 30),
-                ClassSign(grade: viewModel.onboardingViewMultiModel.gradeNum, classNum: viewModel.onboardingViewMultiModel.classNum),
+                ClassSign(grade: OnboardingViewMultiModel.instance.gradeNum, classNum: OnboardingViewMultiModel.instance.classNum),
                 Padding(
                   padding: EdgeInsets.only(left: 10, right: 10),
                   child: Row(

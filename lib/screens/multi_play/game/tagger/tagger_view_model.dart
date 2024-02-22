@@ -10,6 +10,12 @@ class TaggerViewModel extends BaseViewModel{
   final List<bool> _isSelected = [false, false, false];
   final List<String> _nameList = ["","",""];
 
+  final String _correctNum = "4";
+  final String _questNum = "4";
+
+  String get correctNum => _correctNum;
+  String get questNum => _questNum;
+
   // isSelected 리스트에 대한 getter를 제공합니다.
   List<bool> get isSelected => _isSelected;
   List<String> get nameList => _nameList;

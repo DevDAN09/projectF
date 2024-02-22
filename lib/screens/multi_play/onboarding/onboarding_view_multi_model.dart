@@ -22,6 +22,8 @@ class OnboardingViewMultiModel extends BaseViewModel{
     viewModelContext = context;
   }
 
+  String get roomId => "$gradeNum$classNum";
+
   Future<void> onTapCreateRoom() async {
     step += 1;
     //print("NAME : $name");

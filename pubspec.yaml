@@ -39,6 +39,7 @@ dependencies:
   provider: ^6.1.1
   dio: ^5.4.0
   flutter_dotenv: ^5.1.0
+  flutter_svg: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -64,10 +65,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/start.png
-    - assets/images/nameTag.png
-    - assets/images/classSign.png
-    - assets/images/classMotto.png
+    - assets/images/
     - assets/config.json
     - .env
   #   - images/a_dot_ham.jpeg
