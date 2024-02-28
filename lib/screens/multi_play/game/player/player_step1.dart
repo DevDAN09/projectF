@@ -3,35 +3,25 @@ import 'package:projectf/core/constant/color_constant.dart';
 import 'package:projectf/core/base/base_view.dart';
 import 'package:projectf/core/common/view/class_motto.dart';
 import 'package:projectf/core/common/view/class_sign.dart';
-import 'package:projectf/screens/multi_play/game/tagger/tagger_view_model.dart';
-import 'package:projectf/screens/multi_play/game/tagger/tagger_step2.dart';
+import 'package:projectf/screens/multi_play/game/player/player_view_model.dart';
 
-class TaggerStep1View extends StatefulWidget {
-  const TaggerStep1View({super.key});
+class PlayerStep1View extends StatefulWidget {
+  const PlayerStep1View({super.key});
 
   @override
-  _TaggerStep1ViewState createState() => _TaggerStep1ViewState();
+  _PlayerStep1ViewState createState() => _PlayerStep1ViewState();
 }
 
 
 
-class _TaggerStep1ViewState extends State<TaggerStep1View> {
+class _PlayerStep1ViewState extends State<PlayerStep1View> {
   bool isLight = true; // SwitchTest의 상태를 추적하는 로컬 변수
 
   @override
   void initState() {
     super.initState();
-    _navigateToNextScreenAfterDelay();
   }
 
-  void _navigateToNextScreenAfterDelay() {
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => TaggerStep2View()), // NextScreen은 다음 화면의 위젯 클래스
-      );
-    });
-  }
 
   void _handleSwitchChange(bool newValue) {
     setState(() {
@@ -45,7 +35,7 @@ class _TaggerStep1ViewState extends State<TaggerStep1View> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return BaseView(
-      viewModel: TaggerViewModel.instance,
+      viewModel: PlayerViewModel.instance,
       builder: (context2, viewModel, child) {
         return Scaffold(
           backgroundColor: ColorSystem.backgroundColor2,
@@ -75,7 +65,7 @@ class _TaggerStep1ViewState extends State<TaggerStep1View> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       Container(
-                        child: Text("친구들이 답변을 작성하고 있어요", style:TextStyle(color: Colors.white),),
+                        child: Text("답변작성화면", style:TextStyle(color: Colors.white),),
                       ),
                       const Spacer(),
                       Transform.translate( //분필 디자인

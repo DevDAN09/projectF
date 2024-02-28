@@ -10,7 +10,7 @@ import 'package:projectf/screens/multi_play/onboarding/views/onboarding_multi_st
 import 'package:projectf/screens/multi_play/readyroom/ready_room_main.dart';
 
 import '../screens/multi_play/game/tagger/tagger_step1.dart';
-
+import '../screens/multi_play/game/player/player_step1.dart';
 import '../screens/multi_play/game/tagger/tagger_result.dart';
 
 final routerConfig = GoRouter(
@@ -101,6 +101,15 @@ final routerConfig = GoRouter(
         ),
       ),
 
+      GoRoute(
+        path: Routes.PlayerStep1,
+        name: Routes.PlayerStep1,
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: const PlayerStep1View(),
+        ),
+      ),
+
     ],
 );
 
@@ -117,4 +126,5 @@ abstract class Routes{
   static const ReadyRoomMain = '/init/ReadyRoomMain';
   static const TaggerStep1 = '/game/TaggerStep1';
   static const TaggerResult = '/game/TaggerResult';
+  static const PlayerStep1 = '/game/PlayerStep1';
 }

@@ -37,6 +37,6 @@ class ReadyRoomViewModel extends BaseViewModel{
   }
 
   void onTapStartPlayer(){
-
+    viewModelContext.pushReplacementNamed(Routes.PlayerStep1);
   }
 }

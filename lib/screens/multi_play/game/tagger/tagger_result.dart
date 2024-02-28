@@ -38,19 +38,23 @@ class _TaggerResultViewState extends State<TaggerResultView> {
                         children: [
                           BasePaper(height: 400, width: 250),
                           Transform.translate(
-                            offset: Offset(92,100),
+                            offset: Offset(25,25),
+                            child: NameTag(name: "술래 이름", width: 200),
+                          ),
+                          Transform.translate(
+                            offset: Offset(70,140),
                             child: Text(
                               viewModel.correctNum,
                               style: TextStyle(fontSize: 130,color: Colors.red),
                             ),
                           ),
                           Transform.translate(
-                            offset: Offset(140,100),
+                            offset: Offset(65,200),
                               child:
                               Image.asset("assets/images/img_divided.png",),
                           ),
                           Transform.translate(
-                            offset: Offset(180,250),
+                            offset: Offset(170,280),
                             child: Text(
                               viewModel.questNum,
                               style: TextStyle(fontSize: 60),
